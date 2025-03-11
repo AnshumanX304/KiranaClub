@@ -1,11 +1,10 @@
 const Queue = require("bull");
 const { processImage } = require("./services/imageProcessor");
 const { updateJobStatus } = require("./services/jobService");
-const redisClient = require("./db/db");
 
 const imageQueue = new Queue("imageQueue", {
   redis: {
-    url: process.env.REDIS_URL || "redis://localhost:6379",
+    url: process.env.REDIS_URL,
   },
 });
 

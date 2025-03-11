@@ -4,7 +4,7 @@ const redisClient = require("../db/db");
 
 const imageQueue = new Queue("imageQueue", {
   redis: {
-    url: "redis://localhost:6379",
+    url: process.env.REDIS_URL,
   },
 });
 
@@ -33,11 +33,16 @@ async function getJobInfo(jobId) {
 
   if (!jobData) return null;
 
+  if (jobData.status == "failed") {
+    return {
+      job_id: jobId,
+      status: jobData.status,
+      error: jobData.errors,
+    };
+  }
   return {
     job_id: jobId,
     status: jobData.status,
-    results: jobData.results ? JSON.parse(jobData.results) : [],
-    errors: jobData.errors ? JSON.parse(jobData.errors) : [],
   };
 }
 
