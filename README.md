@@ -72,15 +72,16 @@ Before you begin, ensure you have the following installed on your system:
 
     ```json
     {
-      "count": 1,
-      "visits": [
-        {
-          "store_id": "store123",
-          "image_url": [
-            "[https://via.placeholder.com/150](https://via.placeholder.com/150)"
-          ]
-        }
-      ]
+        "count": 1,
+        "visits": [
+            {
+                "store_id": "S00339218",
+                "image_url": [
+                    "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg"
+                ],
+                "visit_time": "2025-03-10T10:00:00Z"
+            }
+        ]
     }
     ```
 
